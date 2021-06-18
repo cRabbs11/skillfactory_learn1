@@ -21,6 +21,7 @@ public class Loader {
         Phone xiaomi = new Phone("сломано стекло", "322 223 322", "04 марта");
         Phone samsung = new Phone("не включается", "333 333 444", "29 марта", "samsung");
         xiaomi.setDone(true);
+        xiaomi.setDescription("замена стекла");
 
         System.out.println(xiaomi.isDone());
         System.out.println(samsung.isDone());
