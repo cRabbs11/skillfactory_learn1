@@ -14,6 +14,8 @@ public class Tank {
         this.fuel = fuel;
         tankCount++;
         id = tankCount;
+
+
     }
 
     private int posX;
