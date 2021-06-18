@@ -23,6 +23,8 @@ public class Phone {
         this.date = date;
         idCount++;
         id= idCount;
+
+        //hjy
     }
 
     public String getModel() {
