@@ -14,8 +14,7 @@ public class Tank {
         this.fuel = fuel;
         tankCount++;
         id = tankCount;
-
-
+        ammo = 30;
     }
 
     private int posX;
@@ -25,6 +24,7 @@ public class Tank {
     private static String modelName = "T34";
     private static int tankCount;
     private final int id;
+    private int ammo;
 
     public int getFuel() {
         return fuel;
@@ -57,7 +57,6 @@ public class Tank {
         } else {
             return -fuel;
         }
-
     }
 
     void goBackward(int position) {
@@ -83,5 +82,22 @@ public class Tank {
     void printPosition() {
         String result = String.format("The Tank %s-%s is at %s, %s now.",modelName, id, posX, posY);
         System.out.println(result);
+    }
+
+    void getShot() {
+        if (ammo>0) {
+            ammo--;
+            System.out.println("shot!");
+        } else {
+            System.out.println("no ammo!");
+        }
+    }
+
+    void add_ammo(int ammo) {
+        this.ammo+=ammo;
+    }
+
+    int get_ammo() {
+        return ammo;
     }
 }
