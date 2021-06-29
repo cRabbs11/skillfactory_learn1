@@ -1,4 +1,5 @@
-import java.util.Scanner;
+import tank.Tank;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
