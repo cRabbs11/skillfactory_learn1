@@ -1,3 +1,5 @@
+package tank;
+
 public class Tank {
 
     public Tank() {
@@ -30,13 +32,21 @@ public class Tank {
         return fuel;
     }
 
-    public void setFuel(int fuel) {
-        this.fuel = fuel;
+    public void addFuel(int fuel) {
+        this.fuel+=fuel;
     }
 
     void goForward(int position) {
         position = getRestFuelPath(position);
+        move(position);
+        spendFuel(position);
+    }
 
+    protected void spendFuel(int value) {
+        fuel -= value;
+    }
+
+    protected void move(int position) {
         if (direction == 0) {
             posX += position;
         } else if (direction == 1) {
@@ -46,10 +56,9 @@ public class Tank {
         } else {
             posY += position;
         }
-        fuel -= position;
     }
 
-    private int getRestFuelPath(int position) {
+    protected int getRestFuelPath(int position) {
         if (fuel > position && fuel > -position) {
             return position;
         } else if (position > 0) {
@@ -80,7 +89,7 @@ public class Tank {
     }
 
     void printPosition() {
-        String result = String.format("The Tank %s-%s is at %s, %s now.",modelName, id, posX, posY);
+        String result = String.format("The Tank.Tank %s-%s is at %s, %s now.",modelName, id, posX, posY);
         System.out.println(result);
     }
 
