@@ -1,6 +1,6 @@
 package tank;
 
-public class Tank {
+public class Tank extends Vehicle {
 
     public Tank() {
         this(0, 0, 100);
@@ -11,17 +11,13 @@ public class Tank {
     }
 
     public Tank(int posX, int posY, int fuel) {
-        this.posX = posX;
-        this.posY = posY;
+        super(posX, posY);
         this.fuel = fuel;
         tankCount++;
         id = tankCount;
         ammo = 30;
     }
 
-    private int posX;
-    private int posY;
-    private int direction;
     private int fuel;
     private static String modelName = "T34";
     private static int tankCount;
@@ -36,6 +32,7 @@ public class Tank {
         this.fuel+=fuel;
     }
 
+    @Override
     void goForward(int position) {
         position = getRestFuelPath(position);
         move(position);
@@ -68,11 +65,12 @@ public class Tank {
         }
     }
 
+    @Override
     void goBackward(int position) {
         goForward(-position);
     }
 
-    void turnLeft() {
+    public void turnLeft() {
         if (direction < 3) {
             direction++;
         } else {
@@ -80,7 +78,7 @@ public class Tank {
         }
     }
 
-    void turnRight() {
+    public void turnRight() {
         if (direction > 0) {
             direction--;
         } else {
