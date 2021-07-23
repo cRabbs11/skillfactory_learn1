@@ -5,13 +5,15 @@ import java.util.regex.Pattern;
 
 public class Loader {
 
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
         // В (0;0) с fuel = 100
-        //Tank justTank = new Tank();
+        Tank justTank = new Tank();
         //// At (10;20) fuel=100
-        //Tank anywareTank = new Tank(10, 10);
-        //// At (20;30) fuel=200
-        //Tank customTank = new Tank(20, 30, 200);
+        Tank anywareTank = new Tank(10, 10);
+        // At (20;30) fuel=200
+        Tank customTank = new Tank(20, 30, 200);
+        System.out.println(Tank.getTanksCreatedReport());
+
         //justTank.goForward(200);
         //justTank.printPosition();
         //anywareTank.goBackward(-200);
@@ -19,12 +21,16 @@ public class Loader {
         //customTank.goForward(201);
         //customTank.printPosition();
 
-        Phone xiaomi = new Phone("сломано стекло", "322 223 322", "04 марта");
-        Phone samsung = new Phone("не включается", "333 333 444", "29 марта", "samsung");
-        xiaomi.setDone(true);
-
-        System.out.println(xiaomi.isDone());
-        System.out.println(samsung.isDone());
+        //String text = "Hello world!";
+        //String encryptText;
+        //String decryptText;
+//
+        //Encoder encoder = new Encoder();
+        //System.out.println("text: " + text);
+        //encryptText = encoder.encrypt(text);
+        //System.out.println("encript: " + encryptText);
+        //decryptText = encoder.decrypt(encryptText);
+        //System.out.println("decript: " + decryptText);
     }
 
     public static void task() {
