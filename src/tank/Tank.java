@@ -34,8 +34,12 @@ public class Tank extends Vehicle {
         return fuel;
     }
 
-    public void addFuel(int fuel) {
-        this.fuel+=fuel;
+    public void addFuel(int fuel) throws AddSupplyException {
+        if (fuel>0) {
+            this.fuel+=fuel;
+        } else {
+            throw new AddSupplyException(fuel, fuel + " - количество добавляемых припасов меньше или равно нулю");
+        }
     }
 
     @Override
@@ -106,8 +110,13 @@ public class Tank extends Vehicle {
         }
     }
 
-    void add_ammo(int ammo) {
-        this.ammo+=ammo;
+    public void addAmmo(int ammo) throws AddSupplyException {
+        if (ammo>0) {
+            this.ammo+=ammo;
+        } else {
+            throw new AddSupplyException(ammo, ammo + " - количество добавляемых припасов меньше или равно нулю");
+        }
+
     }
 
     int get_ammo() {
