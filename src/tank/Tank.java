@@ -1,5 +1,10 @@
 package tank;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class Tank extends Vehicle {
 
     public Tank() {
@@ -16,6 +21,7 @@ public class Tank extends Vehicle {
         tankCount++;
         id = tankCount;
         ammo = 30;
+        createFile(id);
     }
 
     private int fuel;
@@ -107,4 +113,21 @@ public class Tank extends Vehicle {
     int get_ammo() {
         return ammo;
     }
+
+    private void createFile(int id) {
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy_MM_dd_hh_mm_ss");
+        String date = format.format(calendar.getTime());
+        File dir = new File("tanks");
+
+        if (!dir.exists()) { System.out.println("каталог создан: " + dir.mkdir()); }
+
+        File file = new File(dir,date+ " was created tank number " + id + ".txt");
+        try {
+            System.out.println("файл создан: " + file.createNewFile());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
