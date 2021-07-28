@@ -120,11 +120,11 @@ public class Tank extends Vehicle {
         String date = format.format(calendar.getTime());
         File dir = new File("tanks");
 
-        if (!dir.exists()) { dir.mkdir(); }
+        if (!dir.exists()) { System.out.println("каталог создан: " + dir.mkdir()); }
 
         File file = new File(dir,date+ " was created tank number " + id + ".txt");
         try {
-            file.createNewFile();
+            System.out.println("файл создан: " + file.createNewFile());
         } catch (IOException e) {
             e.printStackTrace();
         }
