@@ -1,5 +1,6 @@
 import tank.Tank;
 
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -7,11 +8,11 @@ public class Loader {
 
     public static void main(String[] args) {
         // В (0;0) с fuel = 100
-        Tank justTank = new Tank();
+        //Tank justTank = new Tank();
         //// At (10;20) fuel=100
-        Tank anywareTank = new Tank(10, 10);
+        //Tank anywareTank = new Tank(10, 10);
         //// At (20;30) fuel=200
-        Tank customTank = new Tank(20, 30, 200);
+        //Tank customTank = new Tank(20, 30, 200);
         //justTank.goForward(200);
         //justTank.printPosition();
         //anywareTank.goBackward(-200);
@@ -37,6 +38,34 @@ public class Loader {
         //decryptText = encoder.decrypt(encryptText);
         //System.out.println("decript: " + decryptText);
 
+        User user1 = new User("Ivan");
+        User user2 = new User("Ivan");
+        User user3 = new User("Sofia");
+        User user4 = new User("Kliment");
+        User user5 = new User("Vitalina");
+        User user6 = new User("Andrey");
+        User user7 = new User("Natalia");
+        User user8 = new User("Sergei");
+        User user9 = new User("Maria");
+        User user10 = new User("Vitaliy");
+
+        TreeSet<User> userList = new TreeSet<>(new UserComapator());
+
+        userList.add(user1);
+        userList.add(user2);
+        userList.add(user3);
+        userList.add(user4);
+        userList.add(user5);
+        userList.add(user6);
+        userList.add(user7);
+        userList.add(user8);
+        userList.add(user9);
+        userList.add(user10);
+
+        System.out.println("userList size: " + userList.size());
+        for(User user: userList) {
+            System.out.println(user);
+        }
     }
 
     public static void task() {
