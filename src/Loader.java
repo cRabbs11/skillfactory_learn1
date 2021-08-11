@@ -19,53 +19,5 @@ public class Loader {
         //customTank.goForward(201);
         //customTank.printPosition();
 
-        //Phone xiaomi = new Phone("сломано стекло", "322 223 322", "04 марта");
-        //Phone samsung = new Phone("не включается", "333 333 444", "29 марта", "samsung");
-        //xiaomi.setDone(true);
-//
-        //System.out.println(xiaomi.isDone());
-        //System.out.println(samsung.isDone());
-
-        //String text = "Hello world!";
-        //String encryptText;
-        //String decryptText;
-//
-        //Encoder encoder = new Encoder();
-        //System.out.println("text: " + text);
-        //encryptText = encoder.encrypt(text);
-        //System.out.println("encript: " + encryptText);
-        //decryptText = encoder.decrypt(encryptText);
-        //System.out.println("decript: " + decryptText);
-
-    }
-
-    public static void task() {
-        String text = "Regular Expressions or Regex is an API for defining String patterns that can be used for searching, manipulating and editing a text. It is widely used to define a constraint on strings such as a password. Regular Expressions are provided under java.util.regex package.";
-        //String text = "aaaaab";
-        Pattern pattern = Pattern.compile("(\\bs[a-zA-Z]*?s\\b)");
-        Matcher matcher = pattern.matcher(text);
-        while (matcher.find()) {
-            //System.out.println("find!");
-            //System.out.println(matcher.toString());
-            int start = matcher.start();
-            int end = matcher.end();
-            System.out.println("Found match\n" + text.substring(start, end));
-        }
-
-    }
-
-    public static void example() {
-        String text = "<strike>Это удалить!</strike>А это хороший текст, его трогать не надо.<strike> и это не нужно!</strike>";
-        Pattern pattern = Pattern.compile("<strike>.*?</strike>");
-
-        Matcher matcher = pattern.matcher(text);
-        while (matcher.find()) {
-            int start = matcher.start();
-            int end = matcher.end();
-            System.out.println("Found match\n" + text.substring(start, end) + "\nfrom " + start + " to " + (end - 1));
-        }
-
-        System.out.println("Clean the text");
-        System.out.println(matcher.replaceAll(""));
     }
 }
