@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 public class Loader {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         // В (0;0) с fuel = 100
         Tank justTank = new Tank();
         //// At (10;20) fuel=100
@@ -18,6 +18,24 @@ public class Loader {
         //anywareTank.printPosition();
         //customTank.goForward(201);
         //customTank.printPosition();
+
+        Chat chat = new Chat();
+
+        chat.connectToChat("bear");
+        Thread.sleep(100);
+        chat.connectToChat( "bear");
+        Thread.sleep(100);
+        chat.connectToChat( "croc");
+        Thread.sleep(100);
+        chat.connectToChat( "snake");
+        Thread.sleep(100);
+        chat.connectToChat( "ant");
+        Thread.sleep(100);
+        chat.connectToChat( "deer");
+        Thread.sleep(100);
+        chat.connectToChat( "eagle");
+        Thread.sleep(500);
+        chat.removeFromChar("bear");
 
     }
 }
