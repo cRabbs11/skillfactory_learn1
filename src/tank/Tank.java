@@ -1,7 +1,8 @@
 package tank;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -21,7 +22,8 @@ public class Tank extends Vehicle {
         tankCount++;
         id = tankCount;
         ammo = 30;
-        createFile(id);
+        writeTankInFile(id);
+
     }
 
     private int fuel;
@@ -114,20 +116,35 @@ public class Tank extends Vehicle {
         return ammo;
     }
 
-    private void createFile(int id) {
+
+    private void writeTankInFile(int id) {
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat format = new SimpleDateFormat("yyyy_MM_dd_hh_mm_ss");
-        String date = format.format(calendar.getTime());
-        File dir = new File("tanks");
+        String text = '\n' + format.format(calendar.getTime()) + " был создан танк номер " + id;
 
-        if (!dir.exists()) { System.out.println("каталог создан: " + dir.mkdir()); }
-
-        File file = new File(dir,date+ " was created tank number " + id + ".txt");
         try {
-            System.out.println("файл создан: " + file.createNewFile());
+        FileWriter writer = new FileWriter("Tanks/tanks.txt", StandardCharsets.UTF_8, true);
+        writer.write(text);
+        writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static String getTanksCreatedReport() {
+        StringBuilder report = new StringBuilder("Отчет");
+        try {
+            FileReader fis = new FileReader("Tanks/tanks.txt", StandardCharsets.UTF_8);
+            int i;
+            while((i=fis.read())!=-1) {
+                report.append((char) i);
+            }
+            fis.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return report.toString();
     }
 
 }
