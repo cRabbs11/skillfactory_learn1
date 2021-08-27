@@ -2,6 +2,7 @@ package tank;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -22,6 +23,7 @@ public class Tank extends Vehicle {
         id = tankCount;
         ammo = 30;
         writeTankInFile(id);
+
     }
 
     private int fuel;
@@ -113,6 +115,7 @@ public class Tank extends Vehicle {
     int get_ammo() {
         return ammo;
     }
+
 
     private void writeTankInFile(int id) {
         Calendar calendar = Calendar.getInstance();
