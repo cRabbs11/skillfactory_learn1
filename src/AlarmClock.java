@@ -16,20 +16,13 @@ public class AlarmClock extends Thread {
         calendar = Calendar.getInstance();
         long startLongTime = calendar.getTime().getTime();
         alarmLongTime = startLongTime + alarmMin *60*1000;
-        try {
             while (calendar.getTime().getTime()<alarmLongTime) {
                 calendar = Calendar.getInstance();
-                sleep(10000);
-                //System.out.println("time left: " + String.valueOf(calendar.getTime().getTime()-alarmLongTime));
             }
-
             calendar = Calendar.getInstance();
             SimpleDateFormat format = new SimpleDateFormat("hh:mm:ss");
             String date = format.format(calendar.getTime());
             System.out.println("alarm! time: " + date);
-        } catch (InterruptedException e) {
-            //System.out.println("interrupt!");
-        }
     }
 
     public int getMinLeft() {
